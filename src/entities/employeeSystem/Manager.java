@@ -1,4 +1,4 @@
-package entities;
+package entities.employeeSystem;
 
 public class Manager extends Employee{
 

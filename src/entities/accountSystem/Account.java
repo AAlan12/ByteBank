@@ -1,17 +1,17 @@
-package entities;
+package entities.accountSystem;
 
-public class Account {
-    private Integer agency;
-    private Integer number;
-    private Double balance;
+public abstract class Account {
+    private int agency;
+    private int number;
+    protected double balance;
     private AccountHolder holder;
-    private static int total;
+    private static int total = 0;
 
     public Account(){
 
     }
 
-    public  Account(Integer agency, Integer number){
+    public  Account(int agency, int number){
         Account.total ++;
         System.out.println("Total accounts: " +Account.total);
         System.out.println();
@@ -20,27 +20,35 @@ public class Account {
         System.out.println("Account is being created " +this.number);
     }
 
-    public Integer getAgency() {
+    public int getAgency() {
         return agency;
     }
 
-    public void setAgency(Integer agency) {
+    public void setAgency(int agency) {
+        if(agency <=0){
+            System.out.println("Cannot value less than 0");
+            return;
+        }
         this.agency = agency;
     }
 
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(int number) {
+        if(number <= 0){
+            System.out.println("Cannot value less than 0");
+            return;
+        }
         this.number = number;
     }
 
-    public Double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -56,9 +64,7 @@ public class Account {
         return Account.total;
     }
 
-    public void deposit(double value){
-        this.balance += value;
-    }
+    public abstract void deposit(double value);
 
     public boolean withdraw(double value){
         if(this.balance >= value){

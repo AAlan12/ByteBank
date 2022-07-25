@@ -1,6 +1,6 @@
 package controllers;
 
-import entities.Employee;
+import entities.employeeSystem.Employee;
 
 public class BonusControl {
     private Double sum;

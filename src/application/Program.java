@@ -1,7 +1,6 @@
 package application;
 
-import entities.Account;
-import entities.AccountHolder;
+import entities.accountSystem.*;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,6 +12,7 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner s = new Scanner(System.in);
 
+        /*
         System.out.print("Name: ");
         String name = s.nextLine();
         System.out.print("Cpf: ");
@@ -20,9 +20,9 @@ public class Program {
         System.out.print("Profession: ");
         String profession = s.nextLine();
         System.out.print("Agency: ");
-        Integer agency = s.nextInt();
+        int agency = s.nextInt();
         System.out.print("Number: ");
-        Integer number = s.nextInt();
+        int number = s.nextInt();
         System.out.print("Balance: ");
         double balance = s.nextDouble();
 
@@ -31,7 +31,7 @@ public class Program {
         holder.setCpf(cpf);
         holder.setProfession(profession);
 
-        Account account = new Account(agency, number);
+        Account account = new CheckingAccount(agency, number);
         account.setAgency(agency);
         account.setNumber(number);
         account.setBalance(balance);
@@ -41,6 +41,40 @@ public class Program {
         System.out.println(account.getAgency());
         System.out.println(account.getNumber());
         System.out.printf("R$ %.2f", account.getBalance());
+
+         */
+
+        /*
+        CheckingAccount ca = new CheckingAccount(111, 111);
+		ca.deposit(100.0);
+
+		SavingsAccount sa = new SavingsAccount(222, 222);
+		sa.deposit(200.0);
+
+		ca.transfer(10.0, sa);
+
+		System.out.printf("CC: R$%.2f%n", ca.getBalance());
+		System.out.printf("CP: R$%.2f", sa.getBalance());
+
+
+         */
+
+
+
+    /*
+        CheckingAccount ca = new CheckingAccount(222, 333);
+		ca.deposit(100.0);
+
+		LifeInsurance lifeInsurance = new LifeInsurance();
+
+		TaxCalculator taxCalculator = new TaxCalculator();
+        taxCalculator.register(ca);
+        taxCalculator.register(lifeInsurance);
+
+		System.out.printf("R$%.2f",taxCalculator.getTotaltax());
+
+     */
+
 
 
     }

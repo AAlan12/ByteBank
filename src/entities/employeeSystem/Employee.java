@@ -1,4 +1,4 @@
-package entities;
+package entities.employeeSystem;
 
 public abstract class Employee {
     private String name;
