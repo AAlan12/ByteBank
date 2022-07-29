@@ -2,20 +2,20 @@ package entities.employeeSystem;
 
 public class Administrator extends Employee implements  Authenticable{
 
-    private  Integer password;
+    private  UsefulAuthentication authenticator;
 
-    @Override
-    public void setPassword(Integer password) {
-        this.password = password;
+    public Administrator(){
+        this.authenticator = new UsefulAuthentication();
     }
 
     @Override
-    public boolean authentication(Integer password) {
-        if(this.password == password){
-            return true;
-        } else {
-            return false;
-        }
+    public void setPassword(int password) {
+        this.authenticator.setPassword(password);
+    }
+
+    @Override
+    public boolean authentication(int password) {
+        return this.authenticator.authentication(password);
     }
 
     @Override

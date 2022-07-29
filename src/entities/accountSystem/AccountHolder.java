@@ -1,5 +1,11 @@
 package entities.accountSystem;
 
+/**
+ * class que representa cliente
+ * @author  Antonio Alan
+ * @version 0.1
+ */
+
 public class AccountHolder {
 
     private String name;

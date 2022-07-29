@@ -2,7 +2,7 @@ package entities.employeeSystem;
 
 public interface Authenticable {
 
-    public abstract void setPassword(Integer password) ;
+    public abstract void setPassword(int password) ;
 
-    public abstract boolean authentication(Integer password) ;
+    public abstract boolean authentication(int password) ;
 }

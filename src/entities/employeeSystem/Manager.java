@@ -1,18 +1,25 @@
 package entities.employeeSystem;
 
-public class Manager extends Employee{
+public class Manager extends Employee implements Authenticable{
 
-    private Integer password;
+    private UsefulAuthentication authenticator;
 
-    public boolean authentication(Integer password){
-        if(this.password == password){
-            return true;
-        }else {
-            return false;
-        }
+    public Manager(){
+        this.authenticator = new UsefulAuthentication();
+    }
+
+
+    @Override
+    public void setPassword(int password){
+        this.authenticator.setPassword(password);
+    }
+
+    @Override
+    public boolean authentication(int password){
+        return this.authenticator.authentication(password);
     }
 
     public double getBonus(){
-        return salary * 0.1;
+        return super.getSalary();
     }
 }

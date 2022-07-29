@@ -2,6 +2,10 @@ package entities.accountSystem;
 
 import entities.InsufficientFundsException;
 
+/**
+ * classe que representa uma moldura de uma conta
+ * @author  Antonio Alan
+ */
 public abstract class Account {
     private int agency;
     private int number;
