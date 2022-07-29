@@ -1,5 +1,7 @@
 package entities.accountSystem;
 
+import entities.InsufficientFundsException;
+
 public class CheckingAccount extends Account implements Taxable{
 
     public CheckingAccount(int agency, int number){
@@ -12,9 +14,9 @@ public class CheckingAccount extends Account implements Taxable{
     }
 
     @Override
-    public boolean withdraw(double value){
+    public void withdraw(double value)throws InsufficientFundsException{
         double amountWithdraw = value + 0.2;
-        return super.withdraw(amountWithdraw);
+        super.withdraw(amountWithdraw);
     }
 
     @Override

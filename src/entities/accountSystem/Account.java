@@ -1,5 +1,7 @@
 package entities.accountSystem;
 
+import entities.InsufficientFundsException;
+
 public abstract class Account {
     private int agency;
     private int number;
@@ -66,22 +68,17 @@ public abstract class Account {
 
     public abstract void deposit(double value);
 
-    public boolean withdraw(double value){
-        if(this.balance >= value){
-            this.balance -= value;
-            return true;
-        }else {
-            return false;
+    public void withdraw(double value)throws InsufficientFundsException{
+        if(this.balance < value){
+            throw  new InsufficientFundsException("Balance: "+this.balance+", Value: "+ value);
         }
+        this.balance -= value;
     }
 
-    public  boolean transfer(double value, Account account){
-        if(this.balance >value){
-            this.balance -= value;
-            account.deposit(value);
-            return true;
-        }
-        return false;
+    public void transfer(double value, Account account)throws InsufficientFundsException{
+        this.withdraw(value);
+        account.deposit(value);
+
     }
 
 }
